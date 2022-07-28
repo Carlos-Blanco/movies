@@ -25,7 +25,7 @@
   <button @click="searchMovie">Search</button>
 
   <ul>
-    <li v-for="movie in movies">
+    <li v-for="movie in movies" :id="movie.id">
       <img :src="movie.image" alt="movie.title">
       <h3>{{ movie.title }} - {{movie.description}}</h3>
     </li>
