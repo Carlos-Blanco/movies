@@ -3,7 +3,8 @@
   export default {
     data() {
       return {
-        movie: ""
+        movie: "",
+        movies: []
       }
     },
     computed: {
@@ -11,7 +12,8 @@
         fetch(URL + this.movie)
           .then(res => res.json())
           .then(data => {
-            console.log(data)
+            this.movies = data.results;
+            console.log(data.results)
           });
       }
     }
@@ -21,6 +23,14 @@
 <template>
   <input type="text" v-model="movie" />
   <button @click="searchMovie">Search</button>
+
+  <ul>
+    <li v-for="movie in movies">
+      <img :src="movie.image" alt="movie.title">
+      <h3>{{ movie.title }}</h3>
+    </li>
+  </ul>
+
 </template>
 
 <style scoped>
