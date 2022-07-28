@@ -27,11 +27,17 @@
   <ul>
     <li v-for="movie in movies">
       <img :src="movie.image" alt="movie.title">
-      <h3>{{ movie.title }}</h3>
+      <h3>{{ movie.title }} - {{movie.description}}</h3>
     </li>
   </ul>
 
 </template>
 
 <style scoped>
+  img {
+    width: 100px;
+  }
+  li {
+    list-style: none;
+  }
 </style>
