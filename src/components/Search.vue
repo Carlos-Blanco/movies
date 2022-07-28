@@ -1,5 +1,5 @@
 <script>
-  const URL = 'https://imdb-api.com/en/API/Search/k_79orqyvt/';
+  const URL = 'https://imdb-api.com/en/API/SearchMovie/k_79orqyvt/';
   export default {
     data() {
       return {
