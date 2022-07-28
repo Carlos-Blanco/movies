@@ -1,19 +1,26 @@
 <script>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  data() {
-    return {
-      count: 0
+  const URL = 'https://imdb-api.com/en/API/Search/k_79orqyvt/';
+  export default {
+    data() {
+      return {
+        movie: ""
+      }
+    },
+    computed: {
+      searchMovie() {
+        fetch(URL + this.movie)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+          });
+      }
     }
   }
-}
 </script>
 
 <template>
-  <input type="text" v-model="search" />
+  <input type="text" v-model="movie" />
+  <button @click="searchMovie">Search</button>
 </template>
 
 <style scoped>
