@@ -18,11 +18,11 @@
           });
       },
       movieDetail(id) {
-        fetch(API_URL + `/Fullcast/` + id)
+        fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
           .then(res => res.json())
           .then(data => {
-            this.detail = data.results;
-            console.log(data.results)
+            console.log(API_URL + `/Fullcast/${API_KEY}/` + id)
+            console.log(data)
           });
       }
 
@@ -36,8 +36,10 @@
 
   <ul>
     <li v-for="movie in movies" :id="movie.id">
-      <img :src="movie.image" alt="movie.title">
-      <h3>{{ movie.title }} - {{movie.description}}</h3>
+      <a @click="movieDetail(movie.id)">
+        <img :src="movie.image" alt="movie.title">
+        <h3>{{ movie.title }} - {{movie.description}}</h3>
+      </a>
     </li>
   </ul>
 
