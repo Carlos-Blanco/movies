@@ -6,7 +6,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      movie: ""
+      movieInfo: ""
     }
   },
   methods: {
@@ -28,7 +28,7 @@ export default {
 <template>
   <router-link :to="{ name: 'Home'}">Home</router-link>
     <h1>Movie Detail</h1>
-    {{ movie }}
+    {{ movieInfo }}
 </template>
 
 <style scoped>
