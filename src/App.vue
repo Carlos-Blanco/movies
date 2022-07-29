@@ -5,10 +5,8 @@ import Search from './components/Search.vue'
 </script>
 
 <template>
-  <div>
-    <h1>Movie search</h1>
+    <h1>Search Movies</h1>
     <Search />
-  </div>
 </template>
 
 <style scoped>

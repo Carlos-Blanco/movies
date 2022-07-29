@@ -23,7 +23,6 @@
             console.log(data)
           });
       }
-
     }
   }
 </script>
@@ -34,10 +33,10 @@
 
   <main>
     <article v-for="movie in movies" :id="movie.id">
-      <a @click="movieDetail(movie.id)">
-        <img :src="movie.image" :alt="movie.title">
-        <p>{{ movie.title }} - {{movie.description}}</p>
-      </a>
+      <router-link :to="{ name: 'MovieDetail'}">
+          <img :src="movie.image" :alt="movie.title">
+          <p>{{ movie.title }} - {{movie.description}}</p>
+      </router-link>
     </article>
   </main>
 
@@ -54,6 +53,8 @@
   }
   img {
     width: 150px;
+    height: 222px;
+    object-fit: cover;
   }
   input, button {
     height: 40px;
