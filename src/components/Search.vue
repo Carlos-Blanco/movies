@@ -1,6 +1,6 @@
 <script>
   const API_KEY = 'k_79orqyvt';
-  const API_URL = `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/`;
+  const API_URL = `https://imdb-api.com/en/API`;
   export default {
     data() {
       return {
@@ -10,13 +10,22 @@
     },
     methods: {
       searchMovie() {
-        fetch(API_URL + this.movie)
+        fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movie)
           .then(res => res.json())
           .then(data => {
             this.movies = data.results;
             console.log(data.results)
           });
+      },
+      movieDetail(id) {
+        fetch(API_URL + `/Fullcast/` + id)
+          .then(res => res.json())
+          .then(data => {
+            this.detail = data.results;
+            console.log(data.results)
+          });
       }
+
     }
   }
 </script>
