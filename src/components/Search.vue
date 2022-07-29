@@ -7,7 +7,7 @@
         movies: []
       }
     },
-    computed: {
+    methods: {
       searchMovie() {
         fetch(URL + this.movie)
           .then(res => res.json())
