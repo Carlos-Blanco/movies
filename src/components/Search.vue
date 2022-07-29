@@ -14,14 +14,12 @@
           .then(res => res.json())
           .then(data => {
             this.movies = data.results;
-            console.log(data.results)
           });
       },
       movieDetail(id) {
         fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
           .then(res => res.json())
           .then(data => {
-            console.log(API_URL + `/Fullcast/${API_KEY}/` + id)
             console.log(data)
           });
       }
@@ -32,24 +30,45 @@
 
 <template>
   <input type="text" v-model="movie" />
-  <button @click="searchMovie">Search</button>
+  <button @click="searchMovie">SEARCH</button>
 
-  <ul>
-    <li v-for="movie in movies" :id="movie.id">
+  <main>
+    <article v-for="movie in movies" :id="movie.id">
       <a @click="movieDetail(movie.id)">
-        <img :src="movie.image" alt="movie.title">
-        <h3>{{ movie.title }} - {{movie.description}}</h3>
+        <img :src="movie.image" :alt="movie.title">
+        <p>{{ movie.title }} - {{movie.description}}</p>
       </a>
-    </li>
-  </ul>
+    </article>
+  </main>
 
 </template>
 
 <style scoped>
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  article {
+    flex: 1;
+  }
   img {
-    width: 100px;
+    width: 150px;
   }
-  li {
-    list-style: none;
+  input, button {
+    height: 40px;
+    margin-bottom: 40px;
   }
+  input[type="text"] {
+    border-radius: 3px;
+    background: white;
+    color: #595959;
+    padding: 0 1rem;
+    border: none;
+    font-size: 1rem;
+  }
+  button {
+    margin-left: 1rem;
+    font-weight: bold;
+  };
 </style>
