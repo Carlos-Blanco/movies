@@ -5,8 +5,7 @@ import Search from './components/Search.vue'
 </script>
 
 <template>
-    <h1>Search Movies</h1>
-    <Search />
+    <router-view></router-view>
 </template>
 
 <style scoped>

@@ -13,6 +13,7 @@
         fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movie)
           .then(res => res.json())
           .then(data => {
+            console.log(data.results);
             this.movies = data.results;
           });
       },
@@ -33,9 +34,9 @@
 
   <main>
     <article v-for="movie in movies" :id="movie.id">
-      <router-link :to="{ name: 'MovieDetail'}">
-          <img :src="movie.image" :alt="movie.title">
-          <p>{{ movie.title }} - {{movie.description}}</p>
+      <router-link :to="{ name: 'MovieDetail', params: { id: movie.id } }">
+        <img :src="movie.image" :alt="movie.title">
+        <p>{{ movie.title }} - {{movie.description}}</p>
       </router-link>
     </article>
   </main>
