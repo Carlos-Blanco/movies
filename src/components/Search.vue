@@ -1,5 +1,6 @@
 <script>
-  const URL = 'https://imdb-api.com/en/API/SearchMovie/k_79orqyvt/';
+  const API_KEY = 'k_79orqyvt';
+  const API_URL = `https://imdb-api.com/en/API/SearchMovie/${API_KEY}/`;
   export default {
     data() {
       return {
@@ -9,7 +10,7 @@
     },
     methods: {
       searchMovie() {
-        fetch(URL + this.movie)
+        fetch(API_URL + this.movie)
           .then(res => res.json())
           .then(data => {
             this.movies = data.results;
