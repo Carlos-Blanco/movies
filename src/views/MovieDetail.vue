@@ -27,10 +27,28 @@ export default {
 
 <template>
   <router-link :to="{ name: 'Home'}">Home</router-link>
-    <h1>Movie Detail</h1>
-    {{ movieInfo }}
+  <h1>Movie Detail</h1>
+  <h3>Actors</h3>
+  <section class="flex">
+    <div v-for="actor in movieInfo.actors">
+      <img :src="actor.image" :alt="actor.title">
+      <p>{{ actor.name }} as {{actor.asCharacter}}</p>
+    </div>
+  </section>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  & > div{
+    flex: 1;
+  }
+}
+img {
+  width: 150px;
+  height: 222px;
+  object-fit: cover;
+}
 </style>
