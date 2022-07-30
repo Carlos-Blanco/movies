@@ -55,7 +55,7 @@ export default {
 <template>
   <router-link :to="{ name: 'Home'}">Home</router-link>
   <h1>Movie Detail</h1>
-  <img :src="poster.posters[0].link" :alt="movieInfo.title" />
+º 
   <p>{{ movieInfo.title }}</p>
   <p>{{ movieInfo.year }}</p>
   <p>{{ rating.imDb }}</p>
