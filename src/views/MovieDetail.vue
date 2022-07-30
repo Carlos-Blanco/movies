@@ -8,6 +8,8 @@ export default {
     return {
       movieInfo: "",
       poster: "",
+      rating: "",
+      wiki: ""
     }
   },
   methods: {
@@ -23,13 +25,29 @@ export default {
         .then(res => res.json())
         .then(poster => {
           this.poster = poster;
-          console.log(poster);
+        });
+    },
+    movieRating(id) {
+      fetch(API_URL + `/Ratings/${API_KEY}/` + id)
+        .then(res => res.json())
+        .then(rating => {
+          this.rating = rating;
+        });
+    },
+    movieWiki(id) {
+      fetch(API_URL + `/Wikipedia/${API_KEY}/` + id)
+        .then(res => res.json())
+        .then(wiki => {
+          this.wiki = wiki;
+          console.log(wiki);
         });
     }
   },
   mounted() {
     this.movieDetail(this.id);
     this.moviePoster(this.id);
+    this.movieRating(this.id);
+    this.movieWiki(this.id);
   }
 }
 </script>
@@ -39,8 +57,9 @@ export default {
   <h1>Movie Detail</h1>
   <img :src="poster.posters[0].link" :alt="movieInfo.title" />
   <p>{{ movieInfo.title }}</p>
-  <p>{{ movieInfo. year }}</p>
-
+  <p>{{ movieInfo.year }}</p>
+  <p>{{ rating.imDb }}</p>
+  {{ wiki.plotShort }}
   <section class="flex">
     <div v-for="backdrop in poster.backdrops">
       <img :src="backdrop.link">
