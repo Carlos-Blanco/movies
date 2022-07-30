@@ -6,21 +6,30 @@ export default {
   props: ["id"],
   data() {
     return {
-      movieInfo: ""
+      movieInfo: "",
+      poster: "",
     }
   },
   methods: {
     movieDetail(id) {
       fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
         .then(res => res.json())
-        .then(data => {
-          this.movieInfo = data;
-          console.log(data);
+        .then(cast => {
+          this.movieInfo = cast;
+        });
+    },
+    moviePoster(id) {
+      fetch(API_URL + `/Posters/${API_KEY}/` + id)
+        .then(res => res.json())
+        .then(poster => {
+          this.poster = poster;
+          console.log(poster);
         });
     }
   },
   mounted() {
     this.movieDetail(this.id);
+    this.moviePoster(this.id);
   }
 }
 </script>
@@ -28,6 +37,15 @@ export default {
 <template>
   <router-link :to="{ name: 'Home'}">Home</router-link>
   <h1>Movie Detail</h1>
+  <img :src="poster.posters[0].link" :alt="movieInfo.title" />
+  <p>{{ movieInfo.title }}</p>
+  <p>{{ movieInfo. year }}</p>
+
+  <section class="flex">
+    <div v-for="backdrop in poster.backdrops">
+      <img :src="backdrop.link">
+    </div>
+  </section>
   <h3>Actors</h3>
   <section class="flex">
     <div v-for="actor in movieInfo.actors">
