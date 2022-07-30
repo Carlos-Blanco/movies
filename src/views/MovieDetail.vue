@@ -14,7 +14,7 @@ export default {
       fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
         .then(res => res.json())
         .then(data => {
-          this.movie = data;
+          this.movieInfo = data;
           console.log(data);
         });
     }
