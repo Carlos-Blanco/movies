@@ -54,10 +54,11 @@ export default {
 </script>
 
 <template>
-  <router-link :to="{ name: 'Home'}">Home</router-link>
-  <h1>Movie Detail</h1>
-  <img id="posterWrapper" src="" :alt="movieInfo.title">
-  <p>{{ movieInfo.title }}</p>
+  <div class="poster-wrapper">
+    <router-link :to="{ name: 'Home'}"></router-link>
+    <img id="posterWrapper" src="" :alt="movieInfo.title">
+    <h1>{{ movieInfo.title }}</h1>
+  </div>
   <p>{{ movieInfo.year }}</p>
   <p>{{ rating.imDb }}</p>
   <div id="descriptionWrapper"></div>
@@ -84,9 +85,31 @@ section {
     flex: 1;
   }
 }
-img {
-  width: 150px;
-  height: 222px;
-  object-fit: cover;
+.poster-wrapper {
+  position: relative;
+  background: rgb(2, 0, 34);
+  background: linear-gradient(0deg, rgba(2, 0, 34, 1) 0%, rgba(1, 45, 54, 0) 100%);
+  img {
+    width: 100vw;
+    height: 40vh;
+    object-fit: cover;
+    object-position: 0 -15vh;
+    display: block;
+  }
+  a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background: url(/images/arrow-left.svg) no-repeat;
+    background-size: contain;
+  }
+  h1 {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 1.4rem;
+  }
 }
 </style>

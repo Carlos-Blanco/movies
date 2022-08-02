@@ -1,5 +1,10 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(/src/assets/fonts/OpenSans-VariableFont.woff2) format('woff2');
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: OpenSans, Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.2;
   font-weight: 400;
@@ -66,13 +71,6 @@ button:focus-visible {
 
 .card {
   padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
