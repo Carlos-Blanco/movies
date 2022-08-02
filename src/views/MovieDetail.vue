@@ -95,6 +95,15 @@ section {
 }
 .poster-wrapper {
   position: relative;
+  &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40vh;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), #242424);
+  }
   img {
     width: 100vw;
     height: 40vh;
@@ -113,14 +122,18 @@ section {
   }
   h1 {
     font-size: 1.4rem;
+    font-weight: bold;
     margin: 0;
   }
   .movie__info {
     position: absolute;
     bottom: 0;
     left: 20px;
+    z-index: 2;
     p {
       font-size: 0.9rem;
+      color: #ccc;
+      margin: 10px 0;
     }
   }
 }
