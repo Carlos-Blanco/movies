@@ -61,10 +61,10 @@ export default {
       <h1>{{ movieInfo.title }}</h1>
       <div class="flex-wrapper">
         <div class="flex">
-          <p>{{ rating.imDb }}</p>
+          <p class="rating">{{ rating.imDb }}</p>
         </div>
         <div class="flex">
-          <p>{{ movieInfo.year }}</p>
+          <p class="year">{{ movieInfo.year }}</p>
         </div>
       </div>
     </div>
@@ -119,6 +119,7 @@ section {
     height: 30px;
     background: url(/src/assets/images/icons/arrow-left.svg) no-repeat;
     background-size: contain;
+    z-index: 2;
   }
   h1 {
     font-size: 1.4rem;
@@ -134,6 +135,32 @@ section {
       font-size: 0.9rem;
       color: #ccc;
       margin: 10px 0;
+      &.rating {
+        &:before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          background: url(/src/assets/images/icons/star.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+          margin-right: 5px;
+        }
+      }
+      &.year {
+        &:before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          background: url(/src/assets/images/icons/calendar.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+          margin-right: 5px;
+        }
+      }
     }
   }
 }
