@@ -66,6 +66,9 @@ export default {
         <div class="flex">
           <p class="year">{{ movieInfo.year }}</p>
         </div>
+        <div class="flex">
+          <p class="runtime">{{ movieInfo.runtimeMins }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -131,6 +134,9 @@ section {
     bottom: 0;
     left: 20px;
     z-index: 2;
+    & > .flex-wrapper {
+      width: calc(100% - 40px);
+    }
     p {
       font-size: 0.9rem;
       color: #ccc;
@@ -154,6 +160,19 @@ section {
           width: 20px;
           height: 20px;
           background: url(/src/assets/images/icons/calendar.svg) no-repeat;
+          background-size: contain;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+          margin-right: 5px;
+        }
+      }
+      &.year {
+        &:before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          background: url(/src/assets/images/icons/clock.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
