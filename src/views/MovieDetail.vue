@@ -25,6 +25,7 @@ export default {
         .then(res => res.json())
         .then(poster => {
           this.poster = poster;
+          document.getElementById("posterWrapper").src = poster.posters[0].link;
         });
     },
     movieRating(id) {
@@ -39,7 +40,7 @@ export default {
         .then(res => res.json())
         .then(wiki => {
           this.wiki = wiki;
-          console.log(wiki);
+          document.getElementById("descriptionWrapper").innerHTML = wiki.plotShort.html;
         });
     }
   },
@@ -55,11 +56,11 @@ export default {
 <template>
   <router-link :to="{ name: 'Home'}">Home</router-link>
   <h1>Movie Detail</h1>
-  <img :src="poster.posters[0].link" :alt="movieInfo.title" />
+  <img id="posterWrapper" src="" :alt="movieInfo.title">
   <p>{{ movieInfo.title }}</p>
   <p>{{ movieInfo.year }}</p>
   <p>{{ rating.imDb }}</p>
-  {{ wiki.plotShort }}
+  <div id="descriptionWrapper"></div>
   <section class="flex">
     <div v-for="backdrop in poster.backdrops">
       <img :src="backdrop.link">
