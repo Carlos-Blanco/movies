@@ -56,11 +56,19 @@ export default {
 <template>
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home'}"></router-link>
-    <img id="posterWrapper" src="" :alt="movieInfo.title">
-    <h1>{{ movieInfo.title }}</h1>
+    <img id="posterWrapper" :alt="movieInfo.title">
+    <div class="movie__info">
+      <h1>{{ movieInfo.title }}</h1>
+      <div class="flex-wrapper">
+        <div class="flex">
+          <p>{{ rating.imDb }}</p>
+        </div>
+        <div class="flex">
+          <p>{{ movieInfo.year }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <p>{{ movieInfo.year }}</p>
-  <p>{{ rating.imDb }}</p>
   <div id="descriptionWrapper"></div>
   <section class="flex">
     <div v-for="backdrop in poster.backdrops">
@@ -87,8 +95,6 @@ section {
 }
 .poster-wrapper {
   position: relative;
-  background: rgb(2, 0, 34);
-  background: linear-gradient(0deg, rgba(2, 0, 34, 1) 0%, rgba(1, 45, 54, 0) 100%);
   img {
     width: 100vw;
     height: 40vh;
@@ -100,16 +106,22 @@ section {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 20px;
-    height: 20px;
-    background: url(/images/arrow-left.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    background: url(/src/assets/images/icons/arrow-left.svg) no-repeat;
     background-size: contain;
   }
   h1 {
-    position: absolute;
-    bottom: 5px;
-    left: 20px;
     font-size: 1.4rem;
+    margin: 0;
+  }
+  .movie__info {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    p {
+      font-size: 0.9rem;
+    }
   }
 }
 </style>
