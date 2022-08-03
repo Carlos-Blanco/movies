@@ -29,16 +29,17 @@ export default {
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home'}"></router-link>
     <img :src="movie.image" :alt="movie.title">
+    <p class="movie__content-rating">{{ movie.contentRating }}</p>
     <div class="movie__info">
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
-        <div class="flex">
+        <div>
           <p class="rating">{{ movie.imDbRating }}</p>
         </div>
-        <div class="flex">
+        <div>
           <p class="runtime">{{ movie.runtimeStr }}</p>
         </div>
-        <div class="flex">
+        <div>
           <p class="year">{{ movie.year }}</p>
         </div>
       </div>
@@ -46,6 +47,10 @@ export default {
   </div>
   <article>
     <p>{{ movie.plot }}</p>
+    <p class="title">DIRECTOR</p>
+    <p>{{ movie.directors }}</p>
+    <p class="title">AWARDS</p>
+    <p>{{ movie.awards }}</p>
     <h3>Movie Cast</h3>
     <section class="actors">
       <div v-for="actor in movie.actorList">
@@ -90,6 +95,16 @@ export default {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0;
+  }
+  .movie__content-rating {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    z-index: 2;
+    background: #bd0d2e;
+    font-size: 0.8rem;
   }
   .movie__info {
     position: absolute;
@@ -150,6 +165,14 @@ article {
   padding: 20px;
   p {
     font-size: 0.8rem;
+    margin: 5px;
+    &.title {
+      font-size: 0.6rem;
+      margin-bottom: 0;
+      margin-top: 10px;
+      color: #fff;
+      font-variation-settings: 'wght' 600;
+    }
   }
   h3 {
     color:#fff;
