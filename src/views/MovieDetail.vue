@@ -15,7 +15,6 @@ export default {
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
-          document.getElementById("posterWrapper").src = movie.image;
           console.log(movie);
         });
     }
@@ -29,7 +28,7 @@ export default {
 <template>
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home'}"></router-link>
-    <img id="posterWrapper" :alt="movie.title">
+    <img :src="movie.image" :alt="movie.title">
     <div class="movie__info">
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
@@ -45,14 +44,16 @@ export default {
       </div>
     </div>
   </div>
-  <div>{{ movie.plot }}</div>
-  <h3>Actors</h3>
-  <section class="flex actors">
-    <div v-for="actor in movie.actorList">
-      <img :src="actor.image" :alt="actor.name">
-      <p>{{ actor.name }}</p>
-    </div>
-  </section>
+  <article>
+    <p>{{ movie.plot }}</p>
+    <h3>Actors</h3>
+    <section class="flex actors">
+      <div v-for="actor in movie.actorList">
+        <img :src="actor.image" :alt="actor.name">
+        <p>{{ actor.name }}</p>
+      </div>
+    </section>
+  </article>
 </template>
 
 <style scoped lang="scss">
@@ -85,6 +86,7 @@ export default {
     z-index: 2;
   }
   h1 {
+    color: #fff;
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0;
@@ -141,6 +143,16 @@ export default {
         }
       }
     }
+  }
+}
+article {
+  padding: 20px;
+  p {
+    font-size: 0.8rem;
+  }
+  h3 {
+    color:#fff;
+    font-variation-settings: 'wght' 600;
   }
 }
 .actors {
