@@ -29,8 +29,10 @@
 </script>
 
 <template>
-  <input type="text" v-model="movie" />
-  <button @click="searchMovie">SEARCH</button>
+  <div class="search-wrapper">
+    <input type="text" v-model="movie" />
+    <button @click="searchMovie">SEARCH</button>
+  </div>
 
   <main>
     <article v-for="movie in movies" :id="movie.id">
@@ -43,7 +45,16 @@
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+  .search-wrapper {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
   main {
     display: flex;
     flex-wrap: wrap;
@@ -60,6 +71,8 @@
   input, button {
     height: 40px;
     margin-bottom: 40px;
+    display: block;
+    width: 100%;
   }
   input[type="text"] {
     border-radius: 3px;
@@ -70,7 +83,10 @@
     font-size: 1rem;
   }
   button {
-    margin-left: 1rem;
     font-weight: bold;
-  };
+    @media (min-width: 768px) {
+      margin-left: 1rem;
+      max-width: 150px;
+    }
+  }
 </style>

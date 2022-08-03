@@ -13,7 +13,6 @@ export default {
 </script>
 
 <template>
-  <h1>Home - Search Movies</h1>
   <Search />
 </template>
 

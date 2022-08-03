@@ -20,6 +20,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#app {
+  padding-top: 10vh;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
