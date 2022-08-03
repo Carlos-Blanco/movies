@@ -29,11 +29,11 @@
 </script>
 
 <template>
+  <h1>Movie App</h1>
   <div class="search-wrapper">
     <input type="text" v-model="movie" />
     <button @click="searchMovie">SEARCH</button>
   </div>
-
   <main>
     <article v-for="movie in movies" :id="movie.id">
       <router-link :to="{ name: 'MovieDetail', params: { id: movie.id } }">
