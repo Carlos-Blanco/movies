@@ -6,9 +6,9 @@ export default {
   props: ["id"],
   data() {
     return {
-      movieInfo: "",
+      movie: "",
+      movieCast: "",
       poster: "",
-      rating: "",
       wiki: ""
     }
   },
@@ -17,7 +17,15 @@ export default {
       fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
         .then(res => res.json())
         .then(cast => {
-          this.movieInfo = cast;
+          this.movieCast = cast;
+        });
+    },
+    movieTest(id) {
+      fetch(API_URL + `/Title/${API_KEY}/` + id)
+        .then(res => res.json())
+        .then(movie => {
+          this.movie = movie;
+          console.log(movie);
         });
     },
     moviePoster(id) {
@@ -26,13 +34,6 @@ export default {
         .then(poster => {
           this.poster = poster;
           document.getElementById("posterWrapper").src = poster.posters[0].link;
-        });
-    },
-    movieRating(id) {
-      fetch(API_URL + `/Ratings/${API_KEY}/` + id)
-        .then(res => res.json())
-        .then(rating => {
-          this.rating = rating;
         });
     },
     movieWiki(id) {
@@ -47,8 +48,8 @@ export default {
   mounted() {
     this.movieDetail(this.id);
     this.moviePoster(this.id);
-    this.movieRating(this.id);
     this.movieWiki(this.id);
+    this.movieTest(this.id);
   }
 }
 </script>
@@ -56,18 +57,18 @@ export default {
 <template>
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home'}"></router-link>
-    <img id="posterWrapper" :alt="movieInfo.title">
+    <img id="posterWrapper" :alt="movie.title">
     <div class="movie__info">
-      <h1>{{ movieInfo.title }}</h1>
+      <h1>{{ movieCast.title }}</h1>
       <div class="flex-wrapper">
         <div class="flex">
-          <p class="rating">{{ rating.imDb }}</p>
+          <p class="rating">{{ movie.imDbRating }}</p>
         </div>
         <div class="flex">
-          <p class="year">{{ movieInfo.year }}</p>
+          <p class="runtime">{{ movieCast.runtimeMins }}</p>
         </div>
         <div class="flex">
-          <p class="runtime">{{ movieInfo.runtimeMins }}</p>
+          <p class="year">{{ movieCast.year }}</p>
         </div>
       </div>
     </div>
@@ -80,7 +81,7 @@ export default {
   </section>
   <h3>Actors</h3>
   <section class="flex">
-    <div v-for="actor in movieInfo.actors">
+    <div v-for="actor in movieCast.actors">
       <img :src="actor.image" :alt="actor.title">
       <p>{{ actor.name }} as {{actor.asCharacter}}</p>
     </div>
@@ -135,7 +136,7 @@ section {
     left: 20px;
     z-index: 2;
     & > .flex-wrapper {
-      width: calc(100% - 40px);
+      width: calc(100vw - 40px);
     }
     p {
       font-size: 0.9rem;
@@ -167,7 +168,7 @@ section {
           margin-right: 5px;
         }
       }
-      &.year {
+      &.runtime {
         &:before {
           content: '';
           width: 20px;
