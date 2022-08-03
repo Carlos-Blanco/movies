@@ -46,8 +46,8 @@ export default {
   </div>
   <article>
     <p>{{ movie.plot }}</p>
-    <h3>Actors</h3>
-    <section class="flex actors">
+    <h3>Movie Cast</h3>
+    <section class="actors">
       <div v-for="actor in movie.actorList">
         <img :src="actor.image" :alt="actor.name">
         <p>{{ actor.name }}</p>
@@ -98,6 +98,7 @@ export default {
     z-index: 2;
     & > .flex-wrapper {
       width: calc(100vw - 40px);
+      gap: 2rem;
     }
     p {
       font-size: 0.9rem;
