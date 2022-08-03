@@ -6,12 +6,11 @@ export default {
   props: ["id"],
   data() {
     return {
-      movie: "",
-      poster: "",
+      movie: ""
     }
   },
   methods: {
-    movieTest(id) {
+    movieInfo(id) {
       fetch(API_URL + `/Title/${API_KEY}/` + id)
         .then(res => res.json())
         .then(movie => {
@@ -19,18 +18,10 @@ export default {
           document.getElementById("posterWrapper").src = movie.image;
           console.log(movie);
         });
-    },
-    moviePoster(id) {
-      fetch(API_URL + `/Posters/${API_KEY}/` + id)
-        .then(res => res.json())
-        .then(poster => {
-          this.poster = poster;
-        });
     }
   },
   mounted() {
-    this.moviePoster(this.id);
-    this.movieTest(this.id);
+    this.movieInfo(this.id);
   }
 }
 </script>
@@ -55,11 +46,6 @@ export default {
     </div>
   </div>
   <div>{{ movie.plot }}</div>
-  <section class="flex">
-    <div v-for="backdrop in poster.backdrops">
-      <img :src="backdrop.link">
-    </div>
-  </section>
   <h3>Actors</h3>
   <section class="flex">
     <div v-for="actor in movie.actorList">
