@@ -7,18 +7,10 @@ export default {
   data() {
     return {
       movie: "",
-      movieCast: "",
       poster: "",
     }
   },
   methods: {
-    movieDetail(id) {
-      fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
-        .then(res => res.json())
-        .then(cast => {
-          this.movieCast = cast;
-        });
-    },
     movieTest(id) {
       fetch(API_URL + `/Title/${API_KEY}/` + id)
         .then(res => res.json())
@@ -37,7 +29,6 @@ export default {
     }
   },
   mounted() {
-    this.movieDetail(this.id);
     this.moviePoster(this.id);
     this.movieTest(this.id);
   }
@@ -71,9 +62,9 @@ export default {
   </section>
   <h3>Actors</h3>
   <section class="flex">
-    <div v-for="actor in movieCast.actors">
-      <img :src="actor.image" :alt="actor.title">
-      <p>{{ actor.name }} as {{actor.asCharacter}}</p>
+    <div v-for="actor in movie.actorList">
+      <img :src="actor.image" :alt="actor.name">
+      <p>{{ actor.name }}</p>
     </div>
   </section>
 </template>
