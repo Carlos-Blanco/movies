@@ -47,7 +47,7 @@ export default {
   </div>
   <div>{{ movie.plot }}</div>
   <h3>Actors</h3>
-  <section class="flex">
+  <section class="flex actors">
     <div v-for="actor in movie.actorList">
       <img :src="actor.image" :alt="actor.name">
       <p>{{ actor.name }}</p>
@@ -56,14 +56,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  & > div{
-    flex: 1;
-  }
-}
 .poster-wrapper {
   position: relative;
   &:after {
@@ -148,6 +140,27 @@ section {
           margin-right: 5px;
         }
       }
+    }
+  }
+}
+.actors {
+  gap: 10px;
+  scroll-snap-type: x proximity;
+  overflow-y: scroll;
+  display: flex;
+  div {
+    flex: 1;
+    width: 70px;
+    scroll-snap-align: start;
+    img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+    p {
+      font-size: 0.6rem;
+      text-align: center;
     }
   }
 }
