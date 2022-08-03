@@ -9,7 +9,6 @@ export default {
       movie: "",
       movieCast: "",
       poster: "",
-      wiki: ""
     }
   },
   methods: {
@@ -25,6 +24,7 @@ export default {
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
+          document.getElementById("posterWrapper").src = movie.image;
           console.log(movie);
         });
     },
@@ -33,22 +33,12 @@ export default {
         .then(res => res.json())
         .then(poster => {
           this.poster = poster;
-          document.getElementById("posterWrapper").src = poster.posters[0].link;
-        });
-    },
-    movieWiki(id) {
-      fetch(API_URL + `/Wikipedia/${API_KEY}/` + id)
-        .then(res => res.json())
-        .then(wiki => {
-          this.wiki = wiki;
-          document.getElementById("descriptionWrapper").innerHTML = wiki.plotShort.html;
         });
     }
   },
   mounted() {
     this.movieDetail(this.id);
     this.moviePoster(this.id);
-    this.movieWiki(this.id);
     this.movieTest(this.id);
   }
 }
@@ -59,21 +49,21 @@ export default {
     <router-link :to="{ name: 'Home'}"></router-link>
     <img id="posterWrapper" :alt="movie.title">
     <div class="movie__info">
-      <h1>{{ movieCast.title }}</h1>
+      <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
         <div class="flex">
           <p class="rating">{{ movie.imDbRating }}</p>
         </div>
         <div class="flex">
-          <p class="runtime">{{ movieCast.runtimeMins }}</p>
+          <p class="runtime">{{ movie.runtimeStr }}</p>
         </div>
         <div class="flex">
-          <p class="year">{{ movieCast.year }}</p>
+          <p class="year">{{ movie.year }}</p>
         </div>
       </div>
     </div>
   </div>
-  <div id="descriptionWrapper"></div>
+  <div>{{ movie.plot }}</div>
   <section class="flex">
     <div v-for="backdrop in poster.backdrops">
       <img :src="backdrop.link">
