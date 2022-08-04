@@ -15,7 +15,6 @@ export default {
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
-          console.log(movie);
         });
     }
   },
@@ -193,6 +192,8 @@ article {
       height: 70px;
       object-fit: cover;
       border-radius: 50px;
+      display: block;
+      margin: 0 auto;
     }
     p {
       font-size: 0.6rem;

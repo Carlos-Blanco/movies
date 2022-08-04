@@ -30,7 +30,7 @@
     <article v-for="movie in movies" :id="movie.id">
       <router-link :to="{ name: 'MovieDetail', params: { id: movie.id } }">
         <img :src="movie.image" :alt="movie.title">
-        <p>{{ movie.title }} - {{movie.description}}</p>
+        <p>{{ movie.title }}</p>
       </router-link>
     </article>
   </main>
@@ -57,12 +57,15 @@
     p {
       text-align: center;
       color: #ccc;
+      font-variation-settings: 'wght' 600;
     }
   }
   img {
     width: 150px;
     height: 222px;
     object-fit: cover;
+    display: block;
+    margin: 1rem auto;
   }
   input, button {
     height: 40px;
