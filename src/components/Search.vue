@@ -10,7 +10,7 @@
     },
     methods: {
       searchMovie() {
-        fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movie)
+        fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movieSearch)
         .then(res => res.json())
         .then(data => {
           this.movies = data.results;
@@ -54,6 +54,10 @@
   }
   article {
     flex: 1;
+    p {
+      text-align: center;
+      color: #ccc;
+    }
   }
   img {
     width: 150px;
