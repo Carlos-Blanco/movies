@@ -10,13 +10,13 @@ const routes = [
     component: Home
   },
   {
-    path: '/movie/:id',
+    path: '/movie/:movieid',
     name: "MovieDetail",
     props: true,
     component: MovieDetail
   },
   {
-    path: '/actor/:id',
+    path: '/actor/:actorid',
     name: "ActorDetail",
     props: true,
     component: ActorDetail

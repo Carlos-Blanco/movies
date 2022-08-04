@@ -28,7 +28,7 @@
   </div>
   <main>
     <article v-for="movie in movies" :id="movie.id">
-      <router-link :to="{ name: 'MovieDetail', params: { id: movie.id } }">
+      <router-link :to="{ name: 'MovieDetail', params: { movieid: movie.id } }">
         <img :src="movie.image" :alt="movie.title">
         <p>{{ movie.title }}</p>
       </router-link>

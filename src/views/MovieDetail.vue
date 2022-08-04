@@ -3,15 +3,15 @@ const API_KEY = 'k_79orqyvt';
 const API_URL = `https://imdb-api.com/en/API`;
 export default {
   name: "MovieDetail",
-  props: ["id"],
+  props: ["movieid"],
   data() {
     return {
       movie: ""
     }
   },
   methods: {
-    movieInfo(id) {
-      fetch(API_URL + `/Title/${API_KEY}/` + id)
+    movieInfo(movieid) {
+      fetch(API_URL + `/Title/${API_KEY}/` + movieid)
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted() {
-    this.movieInfo(this.id);
+    this.movieInfo(this.movieid);
   }
 }
 </script>
@@ -53,7 +53,7 @@ export default {
     <h3>Movie Cast</h3>
     <section class="actors">
       <div v-for="actor in movie.actorList">
-        <router-link :to="{ name: 'ActorDetail', params: { id: actor.id } }">
+        <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id, movieid: movie.id } }">
           <img :src="actor.image" :alt="actor.name">
           <p>{{ actor.name }}</p>
         </router-link>
