@@ -53,8 +53,10 @@ export default {
     <h3>Movie Cast</h3>
     <section class="actors">
       <div v-for="actor in movie.actorList">
-        <img :src="actor.image" :alt="actor.name">
-        <p>{{ actor.name }}</p>
+        <router-link :to="{ name: 'ActorDetail', params: { id: actor.id } }">
+          <img :src="actor.image" :alt="actor.name">
+          <p>{{ actor.name }}</p>
+        </router-link>
       </div>
     </section>
   </article>
