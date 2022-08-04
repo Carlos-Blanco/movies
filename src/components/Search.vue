@@ -48,6 +48,7 @@
     }
   }
   main {
+    padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;

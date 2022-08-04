@@ -94,10 +94,11 @@ export default {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0;
+    text-align: left;
   }
   .movie__content-rating {
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 0;
     padding: 5px;
     border-radius: 5px 0 0 5px;
@@ -176,6 +177,7 @@ article {
   h3 {
     color:#fff;
     font-variation-settings: 'wght' 600;
+    margin: 1rem 0 0.5rem;
   }
 }
 .actors {
