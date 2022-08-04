@@ -1,28 +1,20 @@
 <script>
   const API_KEY = 'k_79orqyvt';
-  const API_URL = `https://imdb-api.com/en/API`;
+  const API_URL = 'https://imdb-api.com/en/API';
   export default {
     data() {
       return {
-        movie: "",
+        movieSearch: "",
         movies: []
       }
     },
     methods: {
       searchMovie() {
         fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movie)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data.results);
-            this.movies = data.results;
-          });
-      },
-      movieDetail(id) {
-        fetch(API_URL + `/Fullcast/${API_KEY}/` + id)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data)
-          });
+        .then(res => res.json())
+        .then(data => {
+          this.movies = data.results;
+        });
       }
     }
   }
@@ -31,7 +23,7 @@
 <template>
   <h1>Movie App</h1>
   <div class="search-wrapper">
-    <input type="text" v-model="movie" />
+    <input type="text" v-model="movieSearch" />
     <button @click="searchMovie">SEARCH</button>
   </div>
   <main>
