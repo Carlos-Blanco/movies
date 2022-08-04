@@ -38,10 +38,14 @@
 </template>
 
 <style scoped lang="scss">
+  h1 {
+    text-align: center;
+  }
   .search-wrapper {
     display: flex;
     max-width: 500px;
     margin: 0 auto;
+    padding: 1rem;
     flex-direction: column;
     @media (min-width: 768px) {
       flex-direction: row;
@@ -70,7 +74,7 @@
   }
   input, button {
     height: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     display: block;
     width: 100%;
   }
