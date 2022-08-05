@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <h1>Movies App</h1>
+  <h1>Movie App</h1>
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" />
     <button @click="searchMovie">SEARCH</button>
