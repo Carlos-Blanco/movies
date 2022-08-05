@@ -33,7 +33,7 @@ export default {
   </div>
   <article>
     <p>{{ actor.summary }}</p>
-    <h3>Known For Movies</h3>
+    <h3>Best Movies</h3>
     <div class="knownfor-movies">
       <div v-for="movie in actor.knownFor">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: movie.id } }">
