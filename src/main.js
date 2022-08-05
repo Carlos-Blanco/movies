@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
 import router from './router'
-import firebase from "firebase";
 import App from './App.vue'
 
 // Import the functions you need from the SDKs you need
