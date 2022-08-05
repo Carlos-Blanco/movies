@@ -28,7 +28,7 @@ export default {
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home' }"></router-link>
     <img :src="movie.image" :alt="movie.title">
-    <p class="movie__content-rating">{{ movie.contentRating }}</p>
+    <p class="movie__content-rating" v-if="movie.contentRating">{{ movie.contentRating }}</p>
     <div class="movie__info">
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
