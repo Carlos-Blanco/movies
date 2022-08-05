@@ -1,9 +1,14 @@
 [![Deploy to Firebase Hosting on merge](https://github.com/Carlos-Blanco/movies/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/Carlos-Blanco/movies/actions/workflows/firebase-hosting-merge.yml)
 
-# Vue 3 + Vite
+# Movies App
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Web app using imDb API to show movies and actors.
+Technologies used:
+  Vite
+  Vue JS
+  Github actions
+  Firebase Hosting
 
-## Recommended IDE Setup
+## Actions
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+CI/CD pipeline using Github actions and deploying in Firebase
