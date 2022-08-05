@@ -26,14 +26,19 @@ export default {
 </script>
 
 <template>
-  <router-link :to="{ name: 'MovieDetail', params: { movieid: movieid } }"></router-link>
+  <router-link :to="{ name: 'MovieDetail', params: { movieid: movieid } }" class="back-button"></router-link>
   <img :src="actor.image" :alt="actor.name">
   <p>{{ actor.name }}</p>
   <p>{{ actor.summary }}</p>
+  <div v-for="movie in actor.knownFor">
+    <router-link :to="{ name: 'MovieDetail', params: { movieid: movie.id } }">
+      <p>{{ movie.title }}</p>
+    </router-link>
+  </div>
 </template>
 
 <style scoped lang="scss">
-a {
+.back-button {
   position: absolute;
   top: 20px;
   left: 20px;
