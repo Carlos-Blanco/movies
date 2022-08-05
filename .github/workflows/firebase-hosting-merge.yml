@@ -16,8 +16,8 @@ jobs:
       - name: Build
         run: npm run build
         with:
-          name: src
-          path: src
+          name: dist
+          path: dist
   deploy:
     runs-on: ubuntu-latest
       steps:
