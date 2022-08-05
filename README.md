@@ -4,9 +4,13 @@
 
 Web app using imDb API to show movies and actors.
 Technologies used:
+
   Vite
+
   Vue JS
+
   Github actions
+  
   Firebase Hosting
 
 ## Actions
