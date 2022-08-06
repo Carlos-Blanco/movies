@@ -52,7 +52,7 @@ export default {
   left: 20px;
   width: 30px;
   height: 30px;
-  background: url(../assets/images/icons/arrow-left.svg) no-repeat;
+  background: url(/assets/images/icons/arrow-left.svg) no-repeat;
   background-size: contain;
   z-index: 2;
 }

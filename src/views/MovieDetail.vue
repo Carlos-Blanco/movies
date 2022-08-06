@@ -87,7 +87,7 @@ export default {
     left: 20px;
     width: 30px;
     height: 30px;
-    background: url(../assets/images/icons/arrow-left.svg) no-repeat;
+    background: url(/assets/images/icons/arrow-left.svg) no-repeat;
     background-size: contain;
     z-index: 2;
   }
@@ -126,7 +126,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(../assets/images/icons/star.svg) no-repeat;
+          background: url(/assets/images/icons/star.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
@@ -139,7 +139,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(../assets/images/icons/calendar.svg) no-repeat;
+          background: url(/assets/images/icons/calendar.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
@@ -152,7 +152,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(../assets/images/icons/clock.svg) no-repeat;
+          background: url(/assets/images/icons/clock.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
