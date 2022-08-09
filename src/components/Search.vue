@@ -1,6 +1,6 @@
 <script>
-  const API_KEY = 'k_79orqyvt';
-  const API_URL = 'https://imdb-api.com/en/API';
+  const API_KEY = '17cdde2817ad9091721cd65fdeb37d58';
+  const API_URL = 'https://api.themoviedb.org/3/';
   export default {
     data() {
       return {
@@ -10,11 +10,14 @@
     },
     methods: {
       searchMovie() {
-        fetch(API_URL + `/SearchMovie/${API_KEY}/` + this.movieSearch)
+        fetch(API_URL + `search/movie?api_key=${API_KEY}&query=` + this.movieSearch)
         .then(res => res.json())
         .then(data => {
           this.movies = data.results;
         });
+      },
+      getImageUrl(path) {
+        return `https://image.tmdb.org/t/p/w300${path}`;
       }
     }
   }
@@ -29,7 +32,7 @@
   <main>
     <article v-for="movie in movies" :id="movie.id">
       <router-link :to="{ name: 'MovieDetail', params: { movieid: movie.id } }">
-        <img :src="movie.image" :alt="movie.title">
+        <img :src="getImageUrl(movie.poster_path)" :alt="movie.title">
         <p>{{ movie.title }}</p>
       </router-link>
     </article>
