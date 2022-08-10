@@ -1,6 +1,6 @@
 <script>
-const API_KEY = 'k_79orqyvt';
-const API_URL = `https://imdb-api.com/en/API`;
+const API_KEY = '17cdde2817ad9091721cd65fdeb37d58';
+const API_URL = 'https://api.themoviedb.org/3/';
 export default {
   name: "MovieDetail",
   props: ["movieid"],
@@ -11,11 +11,20 @@ export default {
   },
   methods: {
     movieInfo(movieid) {
-      fetch(API_URL + `/Title/${API_KEY}/` + movieid)
+      fetch(API_URL + `movie/${movieid}?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
         });
+    },
+    getImageUrl(path) {
+      return `https://image.tmdb.org/t/p/w500${path}`;
+    },
+  },
+  computed: {
+    getRate(rate) {
+      fixedRate = rate.toFixed(2);
+      return fixedRate;
     }
   },
   mounted() {
@@ -27,29 +36,25 @@ export default {
 <template>
   <div class="poster-wrapper">
     <router-link :to="{ name: 'Home' }"></router-link>
-    <img :src="movie.image" :alt="movie.title">
+    <img :src="getImageUrl(movie.poster_path)" :alt="movie.title">
     <p class="movie__content-rating" v-if="movie.contentRating">{{ movie.contentRating }}</p>
     <div class="movie__info">
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
         <div>
-          <p class="rating">{{ movie.imDbRating }}</p>
+          <p class="rating">{{ getRate(movie.vote_average) }}</p>
         </div>
         <div>
-          <p class="runtime">{{ movie.runtimeStr }}</p>
+          <p class="runtime">{{ movie.runtime }}</p>
         </div>
         <div>
-          <p class="year">{{ movie.year }}</p>
+          <p class="year">{{ movie.release_date }}</p>
         </div>
       </div>
     </div>
   </div>
   <article>
-    <p>{{ movie.plot }}</p>
-    <p class="title">DIRECTOR</p>
-    <p>{{ movie.directors }}</p>
-    <p class="title">AWARDS</p>
-    <p>{{ movie.awards }}</p>
+    <p>{{ movie.overview }}</p>
     <h3>Movie Cast</h3>
     <section class="actors">
       <div v-for="actor in movie.actorList">
