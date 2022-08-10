@@ -25,6 +25,10 @@ export default {
     },
     getImageUrl(path) {
       return `https://image.tmdb.org/t/p/w500${path}`;
+    },
+    getRate(rate) {
+      rate = rate.toFixed(1);
+      return rate;
     }
   },
   created() {
@@ -34,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <div class="poster-wrapper">
+  <div class="poster-wrapper" v-if="movie">
     <router-link :to="{ name: 'Home' }"></router-link>
     <img :src="getImageUrl(movie.poster_path)" :alt="movie.title">
     <p class="movie__content-rating" v-if="movie.contentRating">{{ movie.contentRating }}</p>
@@ -42,7 +46,7 @@ export default {
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
         <div>
-          <p class="rating">{{movie.vote_average }}</p>
+          <p class="rating">{{ getRate(movie.vote_average) }}</p>
         </div>
         <div>
           <p class="runtime">{{ movie.runtime }}</p>
