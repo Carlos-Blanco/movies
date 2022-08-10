@@ -6,23 +6,28 @@ export default {
   props: ["movieid"],
   data() {
     return {
-      movie: ""
+      movie: "",
+      cast: ""
     }
   },
   methods: {
     movieInfo(movieid) {
-      console.log(movieid);
       fetch(API_URL + `movie/${movieid}?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(movie => {
           this.movie = movie;
+        });
+      fetch(API_URL + `movie/${movieid}/credits?api_key=${API_KEY}`)
+        .then(res => res.json())
+        .then(movieCredits => {
+          this.cast = movieCredits.cast;
         });
     },
     getImageUrl(path) {
       return `https://image.tmdb.org/t/p/w500${path}`;
     }
   },
-  mounted() {
+  created() {
     this.movieInfo(this.movieid);
   }
 }
@@ -48,9 +53,17 @@ export default {
       </div>
     </div>
   </div>
-  <article>
+  <main>
     <p>{{ movie.overview }}</p>
-  </article>
+    <div class="actors">
+      <div v-for="actor in cast.slice(0, 10)" :id="actor.id">
+        <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id } }">
+          <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
+          <p>{{ actor.name }}</p>
+        </router-link>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped lang="scss">
@@ -178,6 +191,7 @@ article {
   scroll-snap-type: x proximity;
   overflow-y: scroll;
   display: flex;
+  margin-top: 2rem;
   div {
     flex: 1;
     width: 70px;
