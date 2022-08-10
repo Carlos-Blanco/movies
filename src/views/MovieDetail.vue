@@ -6,7 +6,8 @@ export default {
   props: ["movieid"],
   data() {
     return {
-      movie: ""
+      movie: "",
+      movieid: this.$route.params.movieid
     }
   },
   methods: {
