@@ -17,7 +17,7 @@
         });
       },
       getImageUrl(path) {
-        return `https://image.tmdb.org/t/p/w300${path}`;
+        return `https://image.tmdb.org/t/p/w500${path}`;
       }
     }
   }

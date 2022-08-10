@@ -11,6 +11,7 @@ export default {
   },
   methods: {
     movieInfo(movieid) {
+      console.log(movieid);
       fetch(API_URL + `movie/${movieid}?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(movie => {
@@ -19,12 +20,6 @@ export default {
     },
     getImageUrl(path) {
       return `https://image.tmdb.org/t/p/w500${path}`;
-    },
-  },
-  computed: {
-    getRate(rate) {
-      fixedRate = rate.toFixed(2);
-      return fixedRate;
     }
   },
   mounted() {
@@ -42,7 +37,7 @@ export default {
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
         <div>
-          <p class="rating">{{ getRate(movie.vote_average) }}</p>
+          <p class="rating">{{movie.vote_average }}</p>
         </div>
         <div>
           <p class="runtime">{{ movie.runtime }}</p>
