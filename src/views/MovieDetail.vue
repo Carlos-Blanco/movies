@@ -50,15 +50,6 @@ export default {
   </div>
   <article>
     <p>{{ movie.overview }}</p>
-    <h3>Movie Cast</h3>
-    <section class="actors">
-      <div v-for="actor in movie.actorList">
-        <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id, movieid: movie.id } }">
-          <img :src="actor.image" :alt="actor.name">
-          <p>{{ actor.name }}</p>
-        </router-link>
-      </div>
-    </section>
   </article>
 </template>
 
@@ -87,7 +78,7 @@ export default {
     left: 20px;
     width: 30px;
     height: 30px;
-    background: url(/assets/images/icons/arrow-left.svg) no-repeat;
+    background: url(/src/assets/arrow-left.svg) no-repeat;
     background-size: contain;
     z-index: 2;
   }
@@ -126,7 +117,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(/assets/images/icons/star.svg) no-repeat;
+          background: url(/src/assets/star.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
@@ -139,7 +130,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(/assets/images/icons/calendar.svg) no-repeat;
+          background: url(/src/assets/calendar.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
@@ -152,7 +143,7 @@ export default {
           content: '';
           width: 20px;
           height: 20px;
-          background: url(/assets/images/icons/clock.svg) no-repeat;
+          background: url(/src/assets/clock.svg) no-repeat;
           background-size: contain;
           display: inline-block;
           position: relative;
