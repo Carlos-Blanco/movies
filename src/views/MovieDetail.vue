@@ -27,8 +27,11 @@ export default {
       return `https://image.tmdb.org/t/p/w500${path}`;
     },
     getRate(rate) {
-      rate = rate.toFixed(1);
-      return rate;
+      return rate.toFixed(1);
+    },
+    getYear(date) {
+      const year = date.substring(0, 4);
+      return year;
     }
   },
   created() {
@@ -52,7 +55,7 @@ export default {
           <p class="runtime">{{ movie.runtime }}</p>
         </div>
         <div>
-          <p class="year">{{ movie.release_date }}</p>
+          <p class="year">{{ getYear(movie.release_date) }}</p>
         </div>
       </div>
     </div>
