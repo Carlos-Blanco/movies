@@ -3,20 +3,22 @@ const API_KEY = '17cdde2817ad9091721cd65fdeb37d58';
 const API_URL = 'https://api.themoviedb.org/3/';
 export default {
   name: "ActorDetail",
-  props: ["actorid", "movieid"],
+  props: ["actorid"],
   data() {
     return {
-      actor: "",
-      movieid: this.movieid
+      actor: ""
     }
   },
   methods: {
     actorInfo(actorid) {
-      fetch(API_URL + `/Name/${API_KEY}/` + actorid)
+      fetch(API_URL + `person/${actorid}?api_key=${API_KEY}`)
         .then(res => res.json())
-        .then(actor => {
-          this.actor = actor;
+        .then(person => {
+          this.actor = person;
         });
+    },
+    getImageUrl(path) {
+      return `https://image.tmdb.org/t/p/w500${path}`;
     }
   },
   mounted() {
@@ -26,21 +28,15 @@ export default {
 </script>
 
 <template>
-  <router-link :to="{ name: 'MovieDetail', params: { movieid: movieid } }" class="back-button"></router-link>
   <div class="actor-profile">
-    <img :src="actor.image" :alt="actor.name">
+    <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
     <p>{{ actor.name }}</p>
   </div>
   <article>
-    <p>{{ actor.summary }}</p>
+    <p>{{ actor.biography }}</p>
     <h3>Best Movies</h3>
     <div class="knownfor-movies">
-      <div v-for="movie in actor.knownFor">
-        <router-link :to="{ name: 'MovieDetail', params: { movieid: movie.id } }">
-          <img :src="movie.image" :alt="movie.title">
-          <p>{{ movie.title }}</p>
-        </router-link>
-      </div>
+
     </div>
   </article>
 </template>

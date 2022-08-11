@@ -34,7 +34,7 @@ export default {
       return year;
     }
   },
-  created() {
+  mounted() {
     this.movieInfo(this.movieid);
   }
 }
