@@ -3,10 +3,11 @@ const API_KEY = '17cdde2817ad9091721cd65fdeb37d58';
 const API_URL = 'https://api.themoviedb.org/3/';
 export default {
   name: "ActorDetail",
-  props: ["actorid"],
+  props: ["actorid", "movieid"],
   data() {
     return {
-      actor: ""
+      actor: "",
+      movieid: this.movieid
     }
   },
   methods: {
@@ -28,16 +29,13 @@ export default {
 </script>
 
 <template>
+  <router-link :to="{ name: 'MovieDetail', params: { movieid: movieid } }" class="back-button"></router-link>
   <div class="actor-profile">
-    <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
-    <p>{{ actor.name }}</p>
+      <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
+      <p>{{ actor.name }}</p>
   </div>
   <article>
     <p>{{ actor.biography }}</p>
-    <h3>Best Movies</h3>
-    <div class="knownfor-movies">
-
-    </div>
   </article>
 </template>
 

@@ -64,7 +64,7 @@ export default {
     <p>{{ movie.overview }}</p>
     <div class="actors">
       <div v-for="actor in cast.slice(0, 10)" :id="actor.id">
-        <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id } }">
+        <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id, movieid: movie.id } }">
           <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
           <p>{{ actor.name }}</p>
         </router-link>
