@@ -2,7 +2,7 @@
 
 # Movies App
 
-Web app using imDb API to show movies and actors.
+Web app using The Movie Database API to show movies and actors.
 
 [Movies App](https://movies-b204a.web.app/)
 
