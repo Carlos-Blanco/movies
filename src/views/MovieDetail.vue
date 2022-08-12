@@ -206,7 +206,7 @@ article {
   margin-top: 1rem;
   div {
     flex: 1;
-    width: 70px;
+    width: 80px;
     scroll-snap-align: start;
     img {
       width: 70px;
