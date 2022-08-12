@@ -32,6 +32,14 @@ export default {
     getYear(date) {
       const year = date.substring(0, 4);
       return year;
+    },
+    getTime(time) {
+      var num = time;
+      var hours = (num / 60);
+      var rhours = Math.floor(hours);
+      var minutes = (hours - rhours) * 60;
+      var rminutes = Math.round(minutes);
+      return rhours + " h " + rminutes + " m";
     }
   },
   mounted() {
@@ -52,7 +60,7 @@ export default {
           <p class="rating">{{ getRate(movie.vote_average) }}</p>
         </div>
         <div>
-          <p class="runtime">{{ movie.runtime }}</p>
+          <p class="runtime">{{ getTime(movie.runtime) }}</p>
         </div>
         <div>
           <p class="year">{{ getYear(movie.release_date) }}</p>
