@@ -118,7 +118,7 @@ main {
   }
   h1 {
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
     text-align: left;
