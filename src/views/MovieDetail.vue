@@ -82,6 +82,12 @@ export default {
 </template>
 
 <style scoped lang="scss">
+main {
+  & > p {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
 .poster-wrapper {
   position: relative;
   &:after {
@@ -95,7 +101,7 @@ export default {
   }
   img {
     width: 100vw;
-    height: 40vh;
+    height: 50vh;
     object-fit: cover;
     object-position: 0 -15vh;
     display: block;
@@ -137,7 +143,7 @@ export default {
       gap: 2rem;
     }
     p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #ccc;
       margin: 10px 0;
       &.rating {
@@ -206,7 +212,7 @@ article {
   scroll-snap-type: x proximity;
   overflow-y: scroll;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1rem;
   div {
     flex: 1;
     width: 70px;
