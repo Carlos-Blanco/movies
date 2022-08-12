@@ -5,20 +5,31 @@
     data() {
       return {
         movieSearch: "",
-        movies: []
+        movies: [],
+        trendingMovies: []
       }
     },
     methods: {
+      trending() {
+        fetch(API_URL + `/trending/movie/week?api_key=${API_KEY}`)
+        .then(res => res.json())
+        .then(trending => {
+          this.trendingMovies = trending.results;
+        });
+      },
       searchMovie() {
         fetch(API_URL + `search/movie?api_key=${API_KEY}&query=` + this.movieSearch)
-        .then(res => res.json())
-        .then(data => {
-          this.movies = data.results;
-        });
+          .then(res => res.json())
+          .then(data => {
+            this.movies = data.results;
+          });
       },
       getImageUrl(path) {
         return `https://image.tmdb.org/t/p/w500${path}`;
       }
+    },
+    mounted() {
+      this.trending();
     }
   }
 </script>
@@ -28,6 +39,17 @@
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" />
     <button @click="searchMovie">SEARCH</button>
+  </div>
+  <div>
+    <h2>Weekly Trending Movies</h2>
+    <main>
+      <article v-for="trendingmovie in trendingMovies">
+        <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
+          <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
+          <p>{{ trendingmovie.title }}</p>
+        </router-link>
+      </article>
+    </main>
   </div>
   <main>
     <article v-for="movie in movies" :id="movie.id">
