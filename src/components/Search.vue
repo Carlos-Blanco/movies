@@ -67,6 +67,10 @@
   h1 {
     text-align: center;
   }
+  h2 {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
   .search-wrapper {
     display: flex;
     max-width: 500px;
@@ -89,14 +93,15 @@
       text-align: center;
       color: #ccc;
       font-variation-settings: 'wght' 600;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
     }
   }
   img {
-    width: 150px;
-    height: 222px;
+    width: 100px;
     object-fit: cover;
     display: block;
-    margin: 1rem auto;
+    margin: 0 auto;
   }
   input, button {
     height: 40px;

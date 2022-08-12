@@ -228,6 +228,8 @@ article {
     p {
       font-size: 0.6rem;
       text-align: center;
+      color: #ccc;
+      margin-top: 0.3rem;
     }
   }
 }
