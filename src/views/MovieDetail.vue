@@ -123,16 +123,7 @@ main {
     margin: 0;
     text-align: left;
   }
-  .movie__content-rating {
-    position: absolute;
-    top: 20px;
-    right: 0;
-    padding: 5px;
-    border-radius: 5px 0 0 5px;
-    z-index: 2;
-    background: #bd0d2e;
-    font-size: 0.8rem;
-  }
+
   .movie__info {
     position: absolute;
     bottom: 0;
@@ -140,10 +131,10 @@ main {
     z-index: 2;
     & > .flex-wrapper {
       width: calc(100vw - 40px);
-      gap: 2rem;
+      gap: 3rem;
     }
     p {
-      font-size: 0.8rem;
+      font-size: 1rem;
       color: #ccc;
       margin: 10px 0;
       &.rating {
@@ -191,7 +182,7 @@ main {
 article {
   padding: 20px;
   p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 5px;
     &.title {
       font-size: 0.6rem;
