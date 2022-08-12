@@ -43,7 +43,7 @@
   </div>
   <div>
     <h2>Weekly Trending Movies</h2>
-    <main id="trendingMoviesWrapper">
+    <main id="trendingMoviesWrapper" class="search__trending-movies">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
@@ -86,6 +86,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+  .search__trending-movies {
+    display: flex;
+    gap: 10px;
+    scroll-snap-type: x proximity;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
   }
   article {
     flex: 1;
