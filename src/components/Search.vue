@@ -22,6 +22,7 @@
           .then(res => res.json())
           .then(data => {
             this.movies = data.results;
+            document.getElementById("trendingMoviesWrapper").style.display = 'none';;
           });
       },
       getImageUrl(path) {
@@ -42,7 +43,7 @@
   </div>
   <div>
     <h2>Weekly Trending Movies</h2>
-    <main>
+    <main id="trendingMoviesWrapper">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
