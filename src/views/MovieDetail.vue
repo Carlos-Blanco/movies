@@ -70,6 +70,7 @@ export default {
   </div>
   <main>
     <p>{{ movie.overview }}</p>
+    <h2>Top Cast</h2>
     <div class="actors">
       <div v-for="actor in cast.slice(0, 10)" :id="actor.id">
         <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id, movieid: movie.id } }">

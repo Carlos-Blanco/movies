@@ -36,14 +36,13 @@
 </script>
 
 <template>
-  <h1>The Movies App</h1>
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" />
     <button @click="searchMovie">SEARCH</button>
   </div>
-  <div>
-    <h2>Weekly Trending Movies</h2>
-    <main id="trendingMoviesWrapper" class="search__trending-movies">
+  <div id="trendingMoviesWrapper">
+    <h2>Trending Movies</h2>
+    <main class="search__trending-movies">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
@@ -66,10 +65,6 @@
 <style scoped lang="scss">
   h1 {
     text-align: center;
-  }
-  h2 {
-    font-size: 1.1rem;
-    margin-left: 1rem;
   }
   .search-wrapper {
     display: flex;
@@ -111,13 +106,13 @@
     margin: 0 auto;
   }
   input, button {
-    height: 40px;
+    height: 50px;
     margin-bottom: 20px;
     display: block;
     width: 100%;
   }
   input[type="text"] {
-    border-radius: 3px;
+    border-radius: var(--border-radius);
     background: white;
     color: #595959;
     padding: 0 1rem;
