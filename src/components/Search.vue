@@ -15,6 +15,7 @@
         .then(res => res.json())
         .then(trending => {
           this.trendingMovies = trending.results;
+          console.log(this.trendingMovies);
         });
       },
       searchMovie() {
@@ -27,6 +28,9 @@
       },
       getImageUrl(path) {
         return `https://image.tmdb.org/t/p/w500${path}`;
+      },
+      getRate(rate) {
+        return rate.toFixed(1);
       }
     },
     mounted() {
@@ -37,13 +41,14 @@
 
 <template>
   <div class="search-wrapper">
-    <input type="text" v-model="movieSearch" @change="searchMovie()"/>
+    <input type="text" v-model="movieSearch" @change="searchMovie()" />
   </div>
   <div id="trendingMoviesWrapper">
     <h2>Trending Movies</h2>
     <main class="search__trending-movies">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
+          <span>{{ getRate(trendingmovie.vote_average) }}</span>
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
           <p>{{ trendingmovie.title }}</p>
         </router-link>
@@ -90,6 +95,19 @@
   }
   article {
     flex: 1;
+    position: relative;
+    span {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: inline-block;
+      background: #f71432;
+      color: white;
+      border-radius: 10px 0 0 10px;
+      padding: 5px;
+      padding: 5px 5px 5px 8px;
+      font-size: 0.8rem;
+    }
     p {
       text-align: center;
       color: #ccc;
