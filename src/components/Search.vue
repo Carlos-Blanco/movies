@@ -68,7 +68,7 @@
   .search-wrapper {
     display: flex;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 30px auto 0;
     padding: 1rem;
     flex-direction: column;
     @media (min-width: 768px) {
