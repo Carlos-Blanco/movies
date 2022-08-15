@@ -37,8 +37,7 @@
 
 <template>
   <div class="search-wrapper">
-    <input type="text" v-model="movieSearch" />
-    <button @click="searchMovie">SEARCH</button>
+    <input type="text" v-model="movieSearch" @change="searchMovie()"/>
   </div>
   <div id="trendingMoviesWrapper">
     <h2>Trending Movies</h2>
@@ -106,7 +105,7 @@
     margin: 0 auto;
     border-radius: 20px;
   }
-  input, button {
+  input {
     height: 50px;
     margin-bottom: 20px;
     display: block;
@@ -120,11 +119,5 @@
     border: none;
     font-size: 1rem;
   }
-  button {
-    font-weight: bold;
-    @media (min-width: 768px) {
-      margin-left: 1rem;
-      max-width: 150px;
-    }
-  }
+
 </style>
