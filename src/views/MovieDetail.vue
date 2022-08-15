@@ -7,7 +7,8 @@ export default {
   data() {
     return {
       movie: "",
-      cast: ""
+      cast: "",
+      similarMovies: ""
     }
   },
   methods: {
@@ -21,6 +22,11 @@ export default {
         .then(res => res.json())
         .then(movieCredits => {
           this.cast = movieCredits.cast;
+        });
+      fetch(API_URL + `movie/${movieid}/similar?api_key=${API_KEY}`)
+        .then(res => res.json())
+        .then(similar => {
+          this.similarMovies = similar.results;
         });
     },
     getImageUrl(path) {
@@ -78,6 +84,16 @@ export default {
           <p>{{ actor.name }}</p>
         </router-link>
       </div>
+    </div>
+    <h2>Similar Movies</h2>
+    <div class="similar-movies">
+      <article v-for="similarmovie in similarMovies">
+        <router-link :to="{ name: 'MovieDetail', params: { movieid: similarmovie.id } }">
+          <span>{{ getRate(similarmovie.vote_average) }}</span>
+          <img :src="getImageUrl(similarmovie.poster_path)" :alt="similarmovie.title">
+          <p>{{ similarmovie.title }}</p>
+        </router-link>
+      </article>
     </div>
   </main>
 </template>
@@ -180,38 +196,20 @@ main {
     }
   }
 }
-article {
-  padding: 20px;
-  p {
-    font-size: 0.9rem;
-    margin: 5px;
-    &.title {
-      font-size: 0.6rem;
-      margin-bottom: 0;
-      margin-top: 10px;
-      color: #fff;
-      font-variation-settings: 'wght' 600;
-    }
-  }
-  h3 {
-    color:#fff;
-    font-variation-settings: 'wght' 600;
-    margin: 1rem 0 0.5rem;
-  }
-}
 .actors {
   gap: 10px;
   scroll-snap-type: x proximity;
   overflow-y: scroll;
   display: flex;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   div {
     flex: 1;
-    width: 80px;
+    width: 90px;
     scroll-snap-align: start;
     img {
-      width: 70px;
-      height: 70px;
+      width: 80px;
+      height: 80px;
       object-fit: cover;
       border-radius: 50px;
       display: block;
@@ -225,4 +223,44 @@ article {
     }
   }
 }
+.similar-movies {
+  display: flex;
+  gap: 10px;
+  scroll-snap-type: x proximity;
+  overflow-y: scroll;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+  article {
+    flex: 1;
+    position: relative;
+    span {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: inline-block;
+      background: #f71432;
+      color: white;
+      border-radius: 10px 0 0 10px;
+      padding: 5px;
+      padding: 5px 5px 5px 8px;
+      font-size: 0.8rem;
+    }
+    p {
+      text-align: center;
+      color: #ccc;
+      font-variation-settings: 'wght' 600;
+      font-size: 0.9rem;
+      margin-top: 0.7rem;
+    }
+    img {
+      width: 140px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+  }
+}
+
+
 </style>
