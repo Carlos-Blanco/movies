@@ -95,15 +95,16 @@
       text-align: center;
       color: #ccc;
       font-variation-settings: 'wght' 600;
-      font-size: 0.8rem;
-      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      margin-top: 0.7rem;
     }
   }
   img {
-    width: 100px;
+    width: 140px;
     object-fit: cover;
     display: block;
     margin: 0 auto;
+    border-radius: 20px;
   }
   input, button {
     height: 50px;
