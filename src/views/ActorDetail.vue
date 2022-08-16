@@ -50,28 +50,6 @@ export default {
   background-size: contain;
   z-index: 2;
 }
-.knownfor-movies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  flex-direction: row;
-  div {
-    flex: 1;
-  }
-  img {
-    width: 150px;
-    height: 222px;
-    object-fit: cover;
-    display: block;
-    margin: 1rem auto;
-  }
-  p {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0.5rem auto;
-  }
-}
 article {
   padding: 20px;
   p {
