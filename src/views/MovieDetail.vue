@@ -50,6 +50,7 @@ export default {
   },
   mounted() {
     this.movieInfo(this.movieid);
+    window.scrollTo(0, 0);
   }
 }
 </script>

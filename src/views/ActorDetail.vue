@@ -24,6 +24,7 @@ export default {
   },
   mounted() {
     this.actorInfo(this.actorid);
+    window.scrollTo(0, 0);
   }
 }
 </script>

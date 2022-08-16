@@ -44,6 +44,7 @@
     mounted() {
       this.trending();
       this.nowPlaying();
+      window.scrollTo(0, 0);
     }
   }
 </script>
