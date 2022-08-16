@@ -119,13 +119,12 @@
     position: relative;
     span {
       position: absolute;
-      top: 10px;
+      top: 20px;
       right: 0;
       display: inline-block;
       background: #f71432;
       color: white;
       border-radius: 10px 0 0 10px;
-      padding: 5px;
       padding: 5px 5px 5px 8px;
       font-size: 0.8rem;
     }
