@@ -6,24 +6,32 @@
       return {
         movieSearch: "",
         movies: [],
-        trendingMovies: []
+        trendingMovies: [],
+        nowPlayingMovies: []
       }
     },
     methods: {
       trending() {
-        fetch(API_URL + `/trending/movie/week?api_key=${API_KEY}`)
+        fetch(API_URL + `trending/movie/week?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(trending => {
           this.trendingMovies = trending.results;
-          console.log(this.trendingMovies);
         });
+      },
+      nowPlaying() {
+        fetch(API_URL + `movie/now_playing?api_key=${API_KEY}`)
+          .then(res => res.json())
+          .then(nowPlaying => {
+            this.nowPlayingMovies = nowPlaying.results;
+          });
       },
       searchMovie() {
         fetch(API_URL + `search/movie?api_key=${API_KEY}&query=` + this.movieSearch)
           .then(res => res.json())
           .then(data => {
             this.movies = data.results;
-            document.getElementById("trendingMoviesWrapper").style.display = 'none';;
+            document.getElementById("trendingMoviesWrapper").style.display = 'none';
+            document.getElementById("playingMoviesWrapper").style.display = 'none';
           });
       },
       getImageUrl(path) {
@@ -35,6 +43,7 @@
     },
     mounted() {
       this.trending();
+      this.nowPlaying();
     }
   }
 </script>
@@ -44,13 +53,25 @@
     <input type="text" v-model="movieSearch" @change="searchMovie()" />
   </div>
   <div id="trendingMoviesWrapper">
-    <h2>Trending Movies</h2>
-    <main class="search__trending-movies">
+    <h2>Popular Movies</h2>
+    <main class="search__home-movies">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
           <span>{{ getRate(trendingmovie.vote_average) }}</span>
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
           <p>{{ trendingmovie.title }}</p>
+        </router-link>
+      </article>
+    </main>
+  </div>
+  <div id="playingMoviesWrapper">
+    <h2>On Cinemas</h2>
+    <main class="search__home-movies">
+      <article v-for="nowPlayingMovie in nowPlayingMovies">
+        <router-link :to="{ name: 'MovieDetail', params: { movieid: nowPlayingMovie.id } }">
+          <span>{{ getRate(nowPlayingMovie.vote_average) }}</span>
+          <img :src="getImageUrl(nowPlayingMovie.poster_path)" :alt="nowPlayingMovie.title">
+          <p>{{ nowPlayingMovie.title }}</p>
         </router-link>
       </article>
     </main>
@@ -86,7 +107,7 @@
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .search__trending-movies {
+  .search__home-movies {
     display: flex;
     gap: 10px;
     scroll-snap-type: x proximity;
