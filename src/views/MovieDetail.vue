@@ -197,6 +197,7 @@ h2 {
   display: flex;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  margin-left: 1rem;
   div {
     flex: 1;
     width: 90px;
