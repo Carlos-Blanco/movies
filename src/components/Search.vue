@@ -12,7 +12,7 @@
     },
     methods: {
       trending() {
-        fetch(API_URL + `trending/movie/week?api_key=${API_KEY}`)
+        fetch(API_URL + `trending/movie/day?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(trending => {
           this.trendingMovies = trending.results;

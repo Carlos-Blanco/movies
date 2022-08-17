@@ -21,7 +21,6 @@ const routes = [
     props: true,
     component: ActorDetail
   }
-
 ];
 
 const router = createRouter({
