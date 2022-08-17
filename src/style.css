@@ -62,7 +62,6 @@ h1 {
 
 h2 {
   font-size: 1.1rem;
-  margin-left: 1rem;
   font-variation-settings: 'wght' 600;
 }
 
@@ -92,6 +91,17 @@ button:focus-visible {
   flex: 1;
 }
 
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background: url(/src/assets/arrow-left.svg) no-repeat;
+  background-size: contain;
+  z-index: 2;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.9));
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

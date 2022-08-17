@@ -57,7 +57,7 @@ export default {
 
 <template>
   <div class="poster-wrapper" v-if="movie">
-    <router-link :to="{ name: 'Home' }"></router-link>
+    <router-link :to="{ name: 'Home' }" class="btn-back"></router-link>
     <img :src="getImageUrl(movie.poster_path)" :alt="movie.title">
     <p class="movie__content-rating" v-if="movie.contentRating">{{ movie.contentRating }}</p>
     <div class="movie__info">
@@ -106,6 +106,9 @@ main {
     font-size: 0.8rem;
   }
 }
+h2 {
+  margin-left: 1rem;
+}
 .poster-wrapper {
   position: relative;
   &:after {
@@ -123,16 +126,6 @@ main {
     object-fit: cover;
     object-position: 0 -15vh;
     display: block;
-  }
-  a {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    background: url(/src/assets/arrow-left.svg) no-repeat;
-    background-size: contain;
-    z-index: 2;
   }
   h1 {
     color: #fff;
@@ -234,6 +227,7 @@ main {
   article {
     flex: 1;
     position: relative;
+    margin-left: 1rem;
     span {
       position: absolute;
       top: 20px;
