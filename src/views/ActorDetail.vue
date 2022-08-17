@@ -36,6 +36,7 @@ export default {
       <p>{{ actor.name }}</p>
   </div>
   <article>
+  <h2>Bio</h2>
     <p>{{ actor.biography }}</p>
   </article>
 </template>
