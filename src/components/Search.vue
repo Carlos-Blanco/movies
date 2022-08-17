@@ -169,8 +169,8 @@
     color: #808080;
     padding: 0 1rem;
     border: none;
-    font-size: 1.1rem;
-    padding-left: 2.5rem;
+    font-size: 1.3rem;
+    padding-left: 2.6rem;
     font-weight: bold;
   }
 
