@@ -92,14 +92,29 @@
   h1 {
     text-align: center;
   }
+  h2 {
+    margin-left: 1rem;
+  }
   .search-wrapper {
     display: flex;
     max-width: 500px;
     margin: 30px auto 0;
     padding: 1rem;
     flex-direction: column;
+    position: relative;
     @media (min-width: 768px) {
       flex-direction: row;
+    }
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url(/src/assets/magnifying-glass.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 30px;
+      left: 30px;
     }
   }
   main {
@@ -144,19 +159,19 @@
     margin: 0 auto;
     border-radius: 20px;
   }
-  input {
+  input[type="text"] {
     height: 50px;
     margin-bottom: 20px;
     display: block;
     width: 100%;
-  }
-  input[type="text"] {
     border-radius: var(--border-radius);
     background: white;
-    color: #595959;
+    color: #808080;
     padding: 0 1rem;
     border: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    padding-left: 2.5rem;
+    font-weight: bold;
   }
 
 </style>
