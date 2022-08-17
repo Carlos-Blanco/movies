@@ -78,7 +78,7 @@ export default {
   <main>
     <p>{{ movie.overview }}</p>
     <h2>Top Cast</h2>
-    <div class="actors">
+    <div class="actors" v-if="cast">
       <div v-for="actor in cast.slice(0, 10)" :id="actor.id">
         <router-link :to="{ name: 'ActorDetail', params: { actorid: actor.id, movieid: movie.id } }">
           <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
@@ -87,7 +87,7 @@ export default {
       </div>
     </div>
     <h2>Similar Movies</h2>
-    <div class="similar-movies">
+    <div class="similar-movies" v-if="similarMovies">
       <article v-for="similarmovie in similarMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: similarmovie.id } }">
           <span>{{ getRate(similarmovie.vote_average) }}</span>
