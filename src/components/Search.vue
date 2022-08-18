@@ -35,7 +35,11 @@
           });
       },
       getImageUrl(path) {
-        return `https://image.tmdb.org/t/p/w500${path}`;
+        if (path) {
+          return `https://image.tmdb.org/t/p/w500${path}`;
+        } else {
+          return `/src/assets/no-photo.jpg`;
+        }
       },
       getRate(rate) {
         return rate.toFixed(1);
