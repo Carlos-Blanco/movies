@@ -54,6 +54,7 @@
 </script>
 
 <template>
+  <img src="/src/assets/logo.svg" alt="Movies App" class="logo">
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" @change="searchMovie()" />
   </div>
@@ -93,6 +94,11 @@
 </template>
 
 <style scoped lang="scss">
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin: 1rem;
+  }
   h1 {
     text-align: center;
   }
@@ -102,7 +108,7 @@
   .search-wrapper {
     display: flex;
     max-width: 500px;
-    margin: 30px auto 0;
+    margin: 0 auto;
     padding: 1rem;
     flex-direction: column;
     position: relative;
