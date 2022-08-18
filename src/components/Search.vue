@@ -162,6 +162,7 @@
     display: block;
     margin: 0 auto;
     border-radius: 20px;
+    aspect-ratio: 9/14;
   }
   input[type="text"] {
     height: 50px;
