@@ -16,6 +16,7 @@ export default {
         .then(res => res.json())
         .then(person => {
           this.actor = person;
+          console.log(this.actor);
         });
     },
     getImageUrl(path) {
@@ -32,11 +33,15 @@ export default {
 <template>
   <router-link :to="{ name: 'MovieDetail', params: { movieid: movieid } }" class="btn-back"></router-link>
   <div class="actor-profile">
-      <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
-      <p>{{ actor.name }}</p>
+    <img :src="getImageUrl(actor.profile_path)" :alt="actor.name">
+    <div>
+      <h1>{{ actor.name }}</h1>
+      <p><strong>Birth:</strong> {{ actor.birthday }} - {{ actor.place_of_birth }}</p>
+      <p v-if="actor.deathday"><strong>Death:</strong> {{ actor.deathday }}</p>
+    </div>
   </div>
-  <article>
-  <h2>Bio</h2>
+  <article v-if="actor.biography">
+    <h2>Bio</h2>
     <p>{{ actor.biography }}</p>
   </article>
 </template>
@@ -44,9 +49,8 @@ export default {
 <style scoped lang="scss">
 article {
   padding: 20px;
-  p {
-    font-size: 0.8rem;
-    margin: 5px;
+  h2 {
+    margin-bottom: 0.5rem;
   }
   h3 {
     color: #fff;
@@ -60,20 +64,28 @@ article {
   }
 }
 .actor-profile {
-  margin-top: 2rem;
+  margin-top: 4rem;
+  display: flex;
   img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10px;
     display: block;
-    margin: 0 auto;
+    margin: 0 1rem;
   }
-
+  h1 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
   p {
-    text-align: center;
     font-size: 1rem;
-    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    strong {
+      font-variation-settings: 'wght' 600;
+    }
   }
 }
 </style>
