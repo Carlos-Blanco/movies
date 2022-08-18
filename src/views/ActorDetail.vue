@@ -68,7 +68,7 @@ article {
   }
 }
 .actor-profile {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   display: flex;
   img {
     width: 150px;
