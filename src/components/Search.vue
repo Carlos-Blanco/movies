@@ -95,8 +95,8 @@
 
 <style scoped lang="scss">
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 1rem;
   }
   h1 {
