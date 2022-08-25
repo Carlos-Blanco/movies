@@ -57,7 +57,7 @@
   <header>
     <img src="/src/assets/logo.svg" alt="Movies App">
     <h1>Movies App</h1>
-    <img src="/src/assets/user.svg" alt="User">
+    <img src="/src/assets/user.svg" alt="User" style="visibility: hidden;">
   </header>
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" @change="searchMovie()" />
