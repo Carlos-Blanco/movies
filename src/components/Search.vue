@@ -67,7 +67,7 @@
     <main class="search__home-movies">
       <article v-for="trendingmovie in trendingMovies">
         <router-link :to="{ name: 'MovieDetail', params: { movieid: trendingmovie.id } }">
-          <span>{{ getRate(trendingmovie.vote_average) }}</span>
+          <span v-if="trendingmovie.vote_average">{{ getRate(trendingmovie.vote_average) }}</span>
           <img :src="getImageUrl(trendingmovie.poster_path)" :alt="trendingmovie.title">
           <p>{{ trendingmovie.title }}</p>
         </router-link>
