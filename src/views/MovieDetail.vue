@@ -67,7 +67,7 @@ export default {
     <div class="movie__info">
       <h1>{{ movie.title }}</h1>
       <div class="flex-wrapper">
-        <div>
+        <div v-if="movie.vote_average">
           <p class="rating">{{ getRate(movie.vote_average) }}</p>
         </div>
         <div>
