@@ -1,6 +1,6 @@
 <script>
 
-</script>nono
+</script>
 
 <template>
   <router-link :to="{ name: 'Home' }" class="btn-back"></router-link>
