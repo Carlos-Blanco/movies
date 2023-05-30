@@ -20,6 +20,11 @@ const routes = [
     name: "ActorDetail",
     props: true,
     component: ActorDetail
+  },
+  {
+    path: '/login',
+    name: "Login",
+    component: Login
   }
 ];
 
