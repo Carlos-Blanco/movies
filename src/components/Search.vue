@@ -57,7 +57,9 @@
   <header>
     <img src="/src/assets/logo.svg" alt="Movies App">
     <h1>Movies App</h1>
-    <img src="/src/assets/user.svg" alt="User">
+    <router-link :to="{ name: 'Login' }">
+      <img src="/src/assets/user.svg" alt="User">
+    </router-link>
   </header>
   <div class="search-wrapper">
     <input type="text" v-model="movieSearch" @change="searchMovie()" />
