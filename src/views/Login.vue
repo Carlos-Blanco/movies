@@ -4,6 +4,7 @@
 
 <template>
   <router-link :to="{ name: 'Home' }" class="btn-back"></router-link>
+  <h1>Login</h1>
   <div class="search-wrapper">
     <label for="">Email:</label>
     <input type="email">
@@ -14,6 +15,11 @@
 </template>
 
 <style scoped lang="scss">
+  h1 {
+    margin: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+  }
   .search-wrapper {
     max-width: 500px;
     margin: 0 auto;
@@ -34,7 +40,6 @@
     color: #808080;
     padding: 0 1rem;
     border: none;
-    padding-left: 2.6rem;
     font-weight: bold;
   }
   label {
