@@ -1,6 +1,6 @@
 <script>
 
-</script>
+</script>nono
 
 <template>
   <router-link :to="{ name: 'Home' }" class="btn-back"></router-link>
@@ -10,7 +10,7 @@
     <label for="">Password:</label>
     <input type="password">
   </div>
-  
+
 </template>
 
 <style scoped lang="scss">
