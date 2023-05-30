@@ -10,6 +10,7 @@
     <label for="">Password:</label>
     <input type="password">
   </div>
+  
 </template>
 
 <style scoped lang="scss">
@@ -41,5 +42,5 @@
     display: block;
   }
 
-  
+
 </style>
