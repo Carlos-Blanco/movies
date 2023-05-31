@@ -1,4 +1,4 @@
-import { createPina } from 'pinia'
+import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import './style.css'
 import router from './router'
