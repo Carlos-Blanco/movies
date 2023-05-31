@@ -27,4 +27,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-createApp(App).use(createPinia).use(router).mount('#app')
+createApp(App).use(createPinia()).use(router).mount('#app')
