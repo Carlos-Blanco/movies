@@ -1,3 +1,4 @@
+import { createPina } from 'pinia'
 import { createApp } from 'vue'
 import './style.css'
 import router from './router'
@@ -26,4 +27,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(createPinia).use(router).mount('#app')
