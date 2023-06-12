@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import MovieDetail from "../views/MovieDetail.vue";
 import ActorDetail from "../views/ActorDetail.vue";
 import Login from "../views/Login.vue";
+import UserMovies from "../views/UserMovies.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/login',
     name: "Login",
     component: Login
+  },
+  {
+    path: '/user-movies',
+    name: "UserMovies",
+    component: UserMovies
   }
 ];
 
