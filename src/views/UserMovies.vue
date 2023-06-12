@@ -13,7 +13,7 @@ export default {
 
 <template>
   <h1>Watchlist Movies</h1>
-
+  <p>{{ movieStore.title }}</p>
 </template>
 
 <style scoped lang="scss">
